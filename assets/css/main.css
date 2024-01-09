@@ -1,0 +1,44 @@
+/* assets */ 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+font-family: ui-sans-serif,
+system-ui,
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+"Helvetica Neue",
+Arial,
+"Noto Sans",
+sans-serif,
+Apple Color Emoji,
+Segoe UI Emoji,
+NotoColorEmoji,
+Segoe UI Symbol,
+Android Emoji,
+EmojiSymbols;
+/* Custom CSS */
+
+.dark\:hide-on-dark {
+display: block;
+visibility: visible;
+}
+
+.dark\:show-on-dark {
+display: none;
+visibility: hidden;
+}
+
+:is(.dark .dark\:hide-on-dark) {
+display: none;
+visibility: hidden;
+}
+
+:is(.dark .dark\:show-on-dark) {
+display: block;
+visibility: visible;
+}
+
+/* Custom CSS end */
