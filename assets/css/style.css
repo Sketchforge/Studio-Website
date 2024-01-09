@@ -1088,6 +1088,14 @@ video {
   border-width: 0;
 }
 
+.visible {
+  visibility: visible;
+}
+
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -1154,6 +1162,11 @@ video {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .-ml-3 {
@@ -1543,6 +1556,16 @@ video {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -1572,9 +1595,9 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-zinc-100 {
+.bg-zinc-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(244 244 245 / var(--tw-bg-opacity));
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity));
 }
 
 .bg-center {
@@ -1604,6 +1627,10 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-1 {
@@ -2053,6 +2080,16 @@ EmojiSymbols;
 :is(.dark .dark\:show-on-dark) {
   display: block;
   visibility: visible;
+}
+
+.bg-title {
+  --tw-bg-opacity: 1;
+  background-color: rgb(160 165 235 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:bg-title) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 100 190 / var(--tw-bg-opacity));
 }
 
 /* Custom CSS end */
@@ -2772,6 +2809,22 @@ EmojiSymbols;
 
   .lg\:pt-20 {
     padding-top: 5rem;
+  }
+
+  .lg\:pb-8 {
+    padding-bottom: 2rem;
+  }
+
+  .lg\:pb-12 {
+    padding-bottom: 3rem;
+  }
+
+  .lg\:pb-4 {
+    padding-bottom: 1rem;
+  }
+
+  .lg\:pb-6 {
+    padding-bottom: 1.5rem;
   }
 
   .lg\:text-left {

@@ -1,255 +1,90 @@
 ---
 title: "Tobor Quest"
+partner: Game Lab
 featured: true
 featured_image: ../assets/images/tobor-quest/icon.png
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus, odio nec venenatis lacinia, lacus lectus varius nisi, in tristique mi purus ut libero.
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus, odio nec venenatis lacinia, lacus lectus varius nisi, in tristique mi purus ut libero. Vestibulum vel convallis felis. Ut finibus lorem vestibulum lobortis rhoncus.
 authorimage: ../assets/images/global/author.webp
-categories: Blog
-tags: Blog
----
-__Advertisement :smile:__
-
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-  i18n with plurals support and easy syntax.
-
-You will like those projects!
-
 ---
 
-# h1 Heading :blush:
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
+<iframe class="full aspect16-9" src="https://www.youtube.com/embed/sdNzyZh9RNU?autoplay=1&mute=1&loop=1&list=PLRNKKzTiLuHQo_nG3suXDMp9r3IJNDwYE" allowfullscreen></iframe>
 
+Tobor Quest is a whacky time trial game where the player drives a food delivery robot to its destination as quickly as possible. The game was designed and developed at the [UTD Game Lab]({{site.url}}/game-lab/) over the course of three months.
 
-## Horizontal Rules
+As Programming Lead, my goal was to keep development fun and enjoyable. I encouraged creative ideas and kept the team excited about the game by letting fun and whacky ideas come to life and bring that in as part of the final game. I communicated consistently with the design, art, and sound leads to make sure there were minimal hiccups and frustrations, and kept the development process enjoyable for a lot of people, consistely showing off features and ideas from the programmers and having laughs with other people on the team.
 
-***
+<br>
 
----
+### Quest Menu
 
-___
+![](quest-menu.jpg){: class="full" }
 
+Around the Beta release of the game, it felt like a core component of the game loop was missing. For Tobor Quest, there was no quest, only some scattered levels without much continuity or transition between them. So I talked to the lead designer, and we came up with a solution of a Quest Menu, which allowed players to play through the ‘quest’ as a whole, or simply play a level out of context in the quest. More important, though, it allowed the tutorial to be separated into its own quest instead of being part of the main quest, which felt weird and jarring to the experience. This also gave opportunity to open the game up to other quests, if the game had future development.
 
-## Typographic replacements
+<br>
 
-Enable typographer option to see result.
+### Controller and Mouse Automatic Switching
 
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+{% highlight csharp %}
+private void ReturnToKeyboardController(InputAction.CallbackContext context)
+{
+    if (!CanUpdate)
+    {
+        return;
+    }
+    _wasController = true;
+    if (!_usingMouse)
+    {
+        return;
+    }
+    Mouse.current.WarpCursorPosition(Vector2.zero);
+    StartCoroutine(IgnoreMouseMovement());
+    SetUsingMouse(false);
+}
 
-test.. test... test..... test?..... test!....
+private void OnMouseMovement(InputAction.CallbackContext context)
+{
+    if (!CanUpdate || _ignoreMouseMovement)
+    {
+        return;
+    }
+    if (_wasController)
+    {
+        var center = new Vector2(Screen.width, Screen.height);
+        Mouse.current.WarpCursorPosition(center * 0.5f);
+        _wasController = false;
+        return;
+    }
+    if (_usingMouse)
+    {
+        return;
+    }
+    SetUsingMouse(true);
+}
 
-!!!!!! ???? ,,  -- ---
+private void SetUsingMouse(bool usingMouse, bool setSelected = true)
+{
+    _usingMouse = usingMouse;
+    Cursor.visible = usingMouse;
+    if (setSelected) SetSelected(usingMouse ? null : _currentlySelected);
+}
+{% endhighlight %}
 
-"Smartypants, double quotes" and 'single quotes'
+I set up an automatic system to properly switch between keyboard and controller seamlessly, switching button prompts and removing the mouse from the screen when using controller. I found this to be very important, because during playtesting, I would notice that players would leave their mouse on the screen, and it would hover buttons while they were using controller, and that felt annoying, so I made a solution. Basically it detects any controller navigation and moves the mouse to the far corner of the screen, and disables it. Then if any mouse movement is detected, it moves the mouse to the center of the screen and it shows back up, disabling the selected UI object the controller had. It’s annoying that Unity’s UI Input Module does not support this properly, but now I have a built solution that can be imported into any project and setup instantly.
 
+<br>
 
-## Emphasis
+### Profiling and Optimization
 
-**This is bold text**
+![](unity-profiler.jpg){: class="full" }
 
-__This is bold text__
+As development neared completion and the game was in content lock, I began profiling the game and finding points of weakness in the code, physics, or art of the game. Then I would delegate out the tasks to the relevant artists or programmers, and it would be fixed relatively quickly. One major optimization was actually with the UI, as Unity was Raycast checking the UI every frame and objects were being animated and disabled/enabled on the UI. This was horrible for performance, so I split up the sections into their own canvases, which allowed groups like the HUD to not have any graphics raycaster, improving performance. Additionally, we switched the animator components to tween scripts, and with some other optimizations it was performing much smoother.
 
-*This is italic text*
+<br>
 
-_This is italic text_
+### The Team
 
-~~Strikethrough~~
+![](tobor-quest-team.jpg){: class="full" }
 
-
-## Blockquotes
-
-
-> Blockquotes can also be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.
-
-
-## Lists
-
-Unordered
-
-+ Create a list by starting a line with `+`, `-`, or `*`
-+ Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    * Ac tristique libero volutpat at
-    + Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-+ Very easy!
-
-Ordered
-
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-
-
-1. You can use sequential numbers...
-1. ...or keep all the numbers as `1.`
-
-Start numbering with offset:
-
-57. foo
-1. bar
-
-
-## Code
-
-Inline `code`
-
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-
-Block code "fences"
-
-```
-Sample text here...
-```
-
-Syntax highlighting
-
-``` js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
-```
-
-## Tables
-
-| Option | Description |
-| ------ | ----------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-Right aligned columns
-
-| Option | Description |
-| ------:| -----------:|
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-
-## Links
-
-[link text](http://dev.nodeca.com)
-
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-
-## Images
-
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]
-
-With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-
-
-## Plugins
-
-The killer feature of `markdown-it` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
-
-
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
-
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
-
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
-
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-- X^2^
-- H~2~O
-
-
-### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
-
-++Inserted text++
-
-
-### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
-
-==Marked text==
-
-
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[^first]: Footnote **can have markup**
-
-    and multiple paragraphs.
-
-[^second]: Footnote text.
-
-
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
-
-Term 1
-
-:   Definition 1
-with lazy continuation.
-
-Term 2 with *inline markup*
-
-:   Definition 2
-
-        { some code, part of Definition 2 }
-
-    Third paragraph of definition 2.
-
-_Compact style:_
-
-Term 1
-  ~ Definition 1
-
-Term 2
-  ~ Definition 2a
-  ~ Definition 2b
-
-
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
-
-This is HTML abbreviation example.
-
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-*[HTML]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning
-*here be dragons*
-:::
-
+The Team was all amazing to work with and very talented. It was a pleasure to bring such a fun game to reality.

@@ -1,255 +1,53 @@
 ---
 title: "Kitty City"
+partner: Relevant VR
 featured: true
 featured_image: ../assets/images/kitty-city/icon-cats.png
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus, odio nec venenatis lacinia, lacus lectus varius nisi, in tristique mi purus ut libero.
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus, odio nec venenatis lacinia, lacus lectus varius nisi, in tristique mi purus ut libero. Vestibulum vel convallis felis. Ut finibus lorem vestibulum lobortis rhoncus.
 authorimage: ../assets/images/global/author.webp
-categories: Blog
-tags: Blog
----
-__Advertisement :smile:__
-
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-  i18n with plurals support and easy syntax.
-
-You will like those projects!
-
 ---
 
-# h1 Heading :blush:
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
+<iframe class="full aspect16-9" src="https://www.youtube.com/embed/nRpLaVBkLVs?autoplay=1&mute=1&loop=1&list=PLRNKKzTiLuHQl-WUGmUibhqL_UkyWO1yo" allowfullscreen></iframe>
 
+Kitty City is an Augmented Reality Project hosted by the [New Mexico Museum of Art - Vladem Contemporary](https://www.nmartmuseum.org/vladem-contemporary/){: target="_blank"} that is based on [Judy Chicago's Kitty City](https://judychicago.com/gallery/kitty-city/kc-artwork-2/). I was the lead developer on the project at the [VAST Lab]({{site.url}}/vast-lab/){: target="_blank"}, and worked on bringing the virtual cat models and animations into Unity for augmented reality on the Meta Quest Pro.
 
-## Horizontal Rules
+<br>
 
-***
+The project was awarded a
+[silver medal in the Davey Awards](https://daveyawards.com/winners-area/gallery/list/?search=relevantvr&event=1066&award=2){: target="_blank"}
+in the Emerging Tech category for virtual and immersive experiences in augmented reality.
 
----
+<br> 
 
-___
+Additionally, it has been mentioned in the following:
+- [The New York Times](https://www.nytimes.com/2023/10/19/arts/design/santa-fe-museum-vladem.html?unlocked_article_code=HjHbO4vTy72VSdmlsK3wxISNixs8BZ9m7BL7utkNj-qrZg09UjhRVDoeopTix5X5JkEz2x_I1JGSEzimfOv64v-c88xQYki8FbzvwO_QoyG9cEzyw1m9jhZMqDmQmu5xNQ7cXbhxJCWnsQNfAIzSs1aSaH8zUYCgF6clqVOqoNSxu25pNvgFWsoYEhzI3b0ZUOQnTwVGg2wLQvy27nJYSMuIpzEPVy9hAQdxWmFfSsmsXdmrlMGJMNnOjCnORBZARjYxMMUT0Fu9NhdarRizpZwdFtrSjiOt0QJOoQhkesB_jHcGplnSbwlgalsIEqawsmQIT8MhrYqJdgAnNPeqMNVIu4w&smid=url-share){: target="_blank"}
+- [The Art Newspaper](https://www.theartnewspaper.com/2023/08/28/new-mexico-museum-expansion-vladem-contemporary){: target="_blank"}
+- [Yahoo Travel and Leisure](https://www.yahoo.com/lifestyle/one-santa-fes-most-exciting-163726145.html?guccounter=1){: target="_blank"}
 
+<br>
 
-## Typographic replacements
+Once the cats were modeled, rigged, and animated, the setup process in Unity required a custom solution for handling how the rig was exported from Maya, [mentioned in this posting]({{site.url}}/projects/maya-python-qt-tools/){: target="_blank"}.
 
-Enable typographer option to see result.
+![](kitty-city-cats.png){: style="width:56.2%"}
+![](kitty-city-rigs.png){: style="width:43.3%"}
 
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+<br>
 
-test.. test... test..... test?..... test!....
+To make the cats able to walk around the room in augmented reality, a floor plan of the gallery had to be constructed and match to the real world. Spatial anchors were used to store the location of the gallery for the experience.
 
-!!!!!! ???? ,,  -- ---
+![](gallery-mapping.png)
 
-"Smartypants, double quotes" and 'single quotes'
+<!--
+Video of setting up the gallery to match the real world? And of the cats in high quality?
 
+<i>The Academic Paper for Kitty City will be posted here once it has been accepted into a Journal</i>
 
-## Emphasis
+<p style="text-align: center"><a href="{{page.url}}/KittyCityPaper.pdf" target="_blank">View or Download Resume PDF</a>.</p>
 
-**This is bold text**
-
-__This is bold text__
-
-*This is italic text*
-
-_This is italic text_
-
-~~Strikethrough~~
-
-
-## Blockquotes
-
-
-> Blockquotes can also be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.
-
-
-## Lists
-
-Unordered
-
-+ Create a list by starting a line with `+`, `-`, or `*`
-+ Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    * Ac tristique libero volutpat at
-    + Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-+ Very easy!
-
-Ordered
-
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-
-
-1. You can use sequential numbers...
-1. ...or keep all the numbers as `1.`
-
-Start numbering with offset:
-
-57. foo
-1. bar
-
-
-## Code
-
-Inline `code`
-
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-
-Block code "fences"
-
-```
-Sample text here...
-```
-
-Syntax highlighting
-
-``` js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
-```
-
-## Tables
-
-| Option | Description |
-| ------ | ----------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-Right aligned columns
-
-| Option | Description |
-| ------:| -----------:|
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-
-## Links
-
-[link text](http://dev.nodeca.com)
-
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-
-## Images
-
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]
-
-With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-
-
-## Plugins
-
-The killer feature of `markdown-it` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
-
-
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
-
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
-
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
-
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-- X^2^
-- H~2~O
-
-
-### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
-
-++Inserted text++
-
-
-### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
-
-==Marked text==
-
-
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[^first]: Footnote **can have markup**
-
-    and multiple paragraphs.
-
-[^second]: Footnote text.
-
-
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
-
-Term 1
-
-:   Definition 1
-with lazy continuation.
-
-Term 2 with *inline markup*
-
-:   Definition 2
-
-        { some code, part of Definition 2 }
-
-    Third paragraph of definition 2.
-
-_Compact style:_
-
-Term 1
-  ~ Definition 1
-
-Term 2
-  ~ Definition 2a
-  ~ Definition 2b
-
-
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
-
-This is HTML abbreviation example.
-
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-*[HTML]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning
-*here be dragons*
-:::
-
+<object class="pdf-embed-short" data="{{page.url}}/KittyCityPaper.pdf" type="application/pdf">
+    <a href="{{page.url}}/KittyCityPaper.pdf" target="_blank">
+        <img style="width: 100%; max-width: 800px;" src="{{page.url}}/KittyCityPaper.png" alt="Resume PDF" />
+    </a>
+</object>
+-->

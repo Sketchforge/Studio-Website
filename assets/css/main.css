@@ -41,4 +41,14 @@ display: block;
 visibility: visible;
 }
 
+.bg-title {
+    --tw-bg-opacity: 1;
+    background-color: rgb(160 165 235 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:bg-title) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(100 100 190 / var(--tw-bg-opacity));
+}
+
 /* Custom CSS end */

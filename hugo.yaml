@@ -7,7 +7,7 @@ params:
   authorimage: ../assets/images/global/author.webp
   og_image: /images/tailbliss-cover.png
   moto: "Born on Paper, Forged in Fire"
-  description: "A Hugo theme built with love, using TailwindCSS 3, Alpine.JS, and Hugo Pipes. Images are optimized for use with Hugo Pipes for WebP format."
+  description: "A team of like-minded, skilled creatives engaged in innovative projects at the forefront of technology. We aim to build a rapport of unique metaverse environments, digital twins, games, videos, and digital assets to burn a path towards our passions within the rapidly evolving digital landscape."
   image: "logo/LogoDark.png"
   disable_theme_toggle: false
   disable_stay_uptodate: false
@@ -20,8 +20,8 @@ params:
       - text: "Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna. Sollicitudin tristique eroserat odio sed vitae, consequat turpis elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet quam urna."
       - text: "Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies. Vulputate aliquet velit faucibus semper. Pellentesque in venenatis vestibulum consectetur nibh id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim fermentum lacus in. Viverra."
   p2:
-    heading: "Just in time for Hacktoberfest with JIT Tailwind."
-    image: "images/team/Daniel.png"
+    heading: "The Team"
+    image: "images/team/Team.jpg"
     content:
       - text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at purus non enim commodo tincidunt vel in nulla. Aenean pretium dolor non ultricies bibendum. Etiam quis blandit enim. Nunc condimentum ut lorem in faucibus. Phasellus varius ligula et commodo tristique. Nunc sodales nisl nec laoreet vehicula. Donec velit nibh, sollicitudin at nulla a, egestas dignissim eros. Sed lacinia hendrerit interdum. Vestibulum pellentesque sem venenatis nisl tempor accumsan sit amet tempus felis. Mauris leo diam, porttitor nec bibendum id, tempus ac nulla. Etiam congue ornare erat at convallis. Donec in nisi dapibus, mattis risus vel, imperdiet enim. Donec fermentum sit amet tortor nec tincidunt. Nam nec lectus tortor. Nunc sit amet laoreet orci, porta ornare massa. Phasellus eget lorem mi. Nam eleifend ultricies sapien, quis mollis leo bibendum at. Quisque viverra lorem sit amet magna aliquet, et dignissim arcu eleifend."
   p3:
@@ -56,16 +56,19 @@ params:
   social_media:
     github:
       enabled: true
-      url: 'https://github.com/nusserstudios'
+      url: 'Sketchforge'
     facebook:
       enabled: false
-      url: 'https://facebook.com/nusserstudios'
+      url: 
     instagram:
       enabled: true
-      url: 'https://instagram.com/nusserstudios'
+      url: 'sketchforgeofficial'
     twitter:
-      enabled: false
-      url: '@nusserstudios'
+      enabled: true
+      url: '@sketchforge'
+    email:
+      enabled: true
+      url: sketchforgework@gmail.com
 
 menu:
   main:
