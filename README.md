@@ -1,4 +1,4 @@
-Sketchforge Studios Website
+## Sketchforge Studios Website
 
 Required Software
 - [Node](https://nodejs.org/en/download)
