@@ -64,7 +64,7 @@ jobs:
       - name: Install Dep and Build
         run: |
           npm install
-          npx tailwind build
+          npx tailwind build -o ./assets/css/style.css
 
   # Deployment job
   deploy:
