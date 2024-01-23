@@ -61,6 +61,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+      - name: Install Dep and Build
+        run: |
+          npm install
+          npx tailwind build
 
   # Deployment job
   deploy:
