@@ -5,7 +5,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
+  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -27,6 +27,20 @@ defaults:
     shell: bash
 
 jobs:
+  # Tailwind CSS
+  tailwindcss-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: update tailwindcss
+        uses: ZoeyVid/tailwindcss-update@main
+        with:
+          input: src/input.css
+          output: src/output.css
+          params: "--minify"
+  
   # Build job
   build:
     runs-on: ubuntu-latest
