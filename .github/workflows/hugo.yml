@@ -43,6 +43,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+      - name: Install Dep and Build
+        run: |
+          npm install
+          npx tailwind build
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
@@ -61,10 +65,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-      - name: Install Dep and Build
-        run: |
-          npm install
-          npx tailwind build -o ./assets/css/style.css
 
   # Deployment job
   deploy:
