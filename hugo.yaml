@@ -43,11 +43,11 @@ params:
   p4:
     heading: "From the blog"
     content:
-      - text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed."
+      - text: "Description."
   p5:
-    heading: "Stay Up to Date"
+    heading: "Get In Touch"
     content:
-      - text: "Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed consectetur neque tristique pellentesque."
+      - text: "Does Not Work"
     action: "#"
     label: "Email address"
     placeholder: "Enter your email"
@@ -76,10 +76,6 @@ menu:
       name: Home
       url: /
       weight: 10
-    - identifier: contact
-      name: Contact
-      url: /contact/
-      weight: 50
   categories:
     - identifier: prose
       name: Prose
